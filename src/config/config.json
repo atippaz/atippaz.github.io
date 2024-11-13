@@ -1,8 +1,8 @@
 {
   "site": {
     "title": "Astroplate - ThaiUI",
-    "base_url": "https://astroplate.thaiui.org/",
-    "base_path": "/",
+    "base_url": "https://atippaz.github.io/",
+    "base_path": "/myport",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",
     "logo": "/images/logo.png",
