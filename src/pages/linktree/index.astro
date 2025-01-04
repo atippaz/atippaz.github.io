@@ -1,0 +1,45 @@
+---
+import Base from "@/layouts/Base.astro";
+const links = [
+  {
+    title: "linkedin",
+    icon: "https://cdn-icons-png.flaticon.com/512/174/174857.png",
+    url: "https://www.linkedin.com/in/atip-nasakun",
+  },
+  {
+    title: "github",
+    icon: "https://cdn-icons-png.flaticon.com/512/25/25231.png",
+    url: "https://github.com/atippaz",
+  },
+  {
+    title: "gmail",
+    icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/512px-Gmail_icon_%282020%29.svg.png",
+    url: "atip.nasakun.work@gmail.com",
+  },
+  {
+    title: "medium",
+    icon: "https://www.svgrepo.com/show/354057/medium-icon.svg",
+    url: "https://medium.com/@nasakun13201",
+  },
+];
+---
+
+<Base title="Linktree">
+  <section class="section-sm text-center">
+    <div class="container">
+      <div class="flex flex-col bg-white">
+        {
+          links.map((link) => (
+            <a
+              href={link.url}
+              class="flex items-center justify-center p-4 border-b border-gray-200 last:border-0"
+            >
+              <img src={link.icon} alt={link.title} class="w-6 h-6 mr-2" />
+              {link.title}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Base>
