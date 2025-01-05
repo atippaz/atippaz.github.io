@@ -91,7 +91,12 @@ const { title, meta_title, description, image, noindex, canonical } =
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=5"
     />
-
+    <meta
+      name="title"
+      content={plainify(
+        meta_title ? meta_title : title ? title : config.site.title,
+      )}
+    />
     <!-- title -->
     <title>
       {plainify(meta_title ? meta_title : title ? title : config.site.title)}
