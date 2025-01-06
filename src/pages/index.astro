@@ -1,24 +1,28 @@
 ---
+import { getLanguage, setLanguage, getTranslations } from "../lib/i18n";
 import Base from "@/layouts/Base.astro";
+const currentUrl = new URL(Astro.request.url);
+const lang = currentUrl.searchParams.get("lang") || "en";
+const t = getTranslations(lang);
 ---
 
-<Base
-  title="Atip Nasakun | Prem"
-  description="Atip Nasakun is a software developer based in Bangkok, Thailand."
->
+<Base title={t.title} description={t.description}>
   <main class="flex flex-col gap-8">
     <section class="pt-8">
       <div class="container">
         <div class="row justify-center">
           <div class="lg:col-12 md:col-12">
-            <p class="">Hello! I'm Atip.</p>
+            <p class="">{t.aboutMe.geeting}</p>
             <h2 class="flex flex-col gap-4">
               <span class="flex gap-2">
-                I'm <p class="text-red-500">Developer/Programmer</p><br />
+                {t.aboutMe.me.i}
+                <p class="text-red-500">{t.aboutMe.me.is}</p><br />
               </span>
               <span class="flex gap-2">
-                Can Create Any <p class="text-blue-600">Digital Product</p>
-                And Integrate <p class="text-blue-600">Technology</p>
+                {t.aboutMe.tagline.line1.section1}
+                <p class="text-blue-600">{t.aboutMe.tagline.line1.section2}</p>
+                {t.aboutMe.tagline.line2.section1}
+                <p class="text-blue-600">{t.aboutMe.tagline.line2.section2}</p>
               </span>
             </h2>
           </div>
@@ -30,7 +34,7 @@ import Base from "@/layouts/Base.astro";
       <div class="container text-[1.2rem]">
         <div class="border-t border-gray-300 my-4"></div>
 
-        <h1 class="flex justify-start">About Me</h1>
+        <h1 class="flex justify-start">{t.aboutMe.title}</h1>
 
         <div class="row">
           <div class="lg:col-12 md:col-12">

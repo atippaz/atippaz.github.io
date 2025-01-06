@@ -20,6 +20,9 @@ export interface NavigationLink {
 const { main }: { main: NavigationLink[] } = menu;
 const { navigation_button, settings } = config;
 const { pathname } = Astro.url;
+import { setLanguage } from "../../lib/i18n";
+const currentUrl = new URL(Astro.request.url);
+const lang = currentUrl.searchParams.get("lang") || "en";
 ---
 
 <header class={`header z-30 ${settings.sticky_header && "sticky top-0"}`}>
@@ -127,6 +130,27 @@ const { pathname } = Astro.url;
         )
       }
       <ThemeSwitcher className="mr-5" />
+      {
+        lang == "en" ? (
+          <button id="th">ไทย</button>
+        ) : (
+          <button id="en">English</button>
+        )
+      }
+      <script>
+        import { setLanguage } from "@/lib/i18n";
+        const th = document.querySelector("#th");
+        if (th)
+          th.addEventListener("click", () => {
+            setLanguage("th", Astro);
+          });
+        const en = document.querySelector("#en");
+        if (en)
+          en.addEventListener("click", () => {
+            setLanguage("en", Astro);
+          });
+      </script>
+
       <!-- {
         navigation_button.enable && (
           <a
